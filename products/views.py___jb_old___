@@ -1,0 +1,16 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from .models import Product
+
+
+# Create your views here.
+def index(request):
+    products = Product.objects.all() #to get all data from database
+    return render(request, 'index.html',
+                  {'products': products}
+                  )
+    # return HttpResponse('Hello World dddddd')
+
+
+def new(request):
+    return HttpResponse('New Products')
